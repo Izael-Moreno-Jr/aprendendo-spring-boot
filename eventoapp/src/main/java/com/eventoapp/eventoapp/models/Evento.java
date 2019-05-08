@@ -1,7 +1,21 @@
 package com.eventoapp.eventoapp.models;
 
-public class Evento {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Evento implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private long condigo;
+
 	private String nome;
 	
 	private String local;
@@ -9,6 +23,14 @@ public class Evento {
 	private String data;
 	
 	private String horario;
+
+	public long getCondigo() {
+		return condigo;
+	}
+
+	public void setCondigo(long condigo) {
+		this.condigo = condigo;
+	}
 
 	public String getNome() {
 		return nome;
